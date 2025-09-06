@@ -4,6 +4,5 @@ netCDF4
 numpy
 pandas
 plotly
-matplotlib
-scikit-learn
 scipy
+scikit-learn
