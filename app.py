@@ -8,6 +8,7 @@ from scipy.spatial import cKDTree
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 import warnings
+import os
 
 warnings.filterwarnings("ignore")
 st.set_page_config(page_title="SOM Rainfall Analysis", layout="wide")
@@ -16,10 +17,15 @@ st.title("🌧️ Analisis Curah Hujan dengan SOM (Self-Organizing Map)")
 # -------------------------
 # 1. BACA DATA LANGSUNG
 # -------------------------
-DATA_PATH = "data_kompres.nc"  # ganti path sesuai lokasi data Anda
+DATA_PATH = "data/data_kompres.nc"  # taruh file di folder "data" pada project Anda
+
+if not os.path.exists(DATA_PATH):
+    st.error(f"File NetCDF tidak ditemukan di {DATA_PATH}. Pastikan file ada di folder data/")
+    st.stop()
 
 try:
     ds_tmp = xr.open_dataset(DATA_PATH)
+    st.success(f"File berhasil dibuka: {DATA_PATH}")
 except Exception as e:
     st.error(f"Gagal membuka file NetCDF: {e}")
     st.stop()
@@ -242,4 +248,3 @@ if st.button("Latih SOM & Analisis"):
         st.pyplot(figp)
 
     st.success("✅ Analisis selesai. File CSV & Statistik bisa diunduh.")
-
