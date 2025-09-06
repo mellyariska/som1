@@ -16,7 +16,7 @@ st.title("🌧️ Analisis Curah Hujan dengan SOM (Self-Organizing Map)")
 # -------------------------
 # 1. BACA DATA LANGSUNG
 # -------------------------
-DATA_PATH = "/mnt/data/data_kompres.nc"  # ganti path sesuai lokasi data Anda
+DATA_PATH = "data_kompres.nc"  # ganti path sesuai lokasi data Anda
 
 try:
     ds_tmp = xr.open_dataset(DATA_PATH)
@@ -242,3 +242,4 @@ if st.button("Latih SOM & Analisis"):
         st.pyplot(figp)
 
     st.success("✅ Analisis selesai. File CSV & Statistik bisa diunduh.")
+
