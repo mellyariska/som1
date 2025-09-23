@@ -1,8 +1,9 @@
 streamlit
-xarray
-netCDF4
+matplotlib
 numpy
 pandas
-plotly
-scipy
+xarray
+cartopy
+geopandas
 scikit-learn
+minisom
