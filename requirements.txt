@@ -8,3 +8,5 @@ cartopy
 geopandas
 scikit-learn
 minisom
+netCDF4
+h5netcdf
